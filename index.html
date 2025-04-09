@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palopo Strike - SMPN 1 Palopo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="menu">
+    <h1>Palopo Strike</h1>
+    <h2>SMPN 1 Palopo</h2>
+    <button id="startBtn">Start Game</button>
+    <button id="howToBtn">Cara Main</button>
+    <div id="howTo" class="hidden">
+      <p>PC: Gunakan WASD untuk bergerak, mouse untuk melihat, klik untuk menembak.</p>
+      <p>Mobile: Gunakan joystick untuk bergerak, swipe kanan untuk melihat, tombol merah untuk menembak.</p>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div id="score">Target Kena: 0</div>
+    <div id="school">SMPN 1 Palopo</div>
+    <div id="crosshair">+</div>
+    <div id="joystick-zone"></div>
+    <button id="shootBtn" class="shoot-button">Shoot</button>
+  </div>
+
+  <canvas id="game" class="hidden"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/nipplejs@0.9.0/dist/nipplejs.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
