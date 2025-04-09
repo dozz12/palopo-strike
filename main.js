@@ -1,7 +1,8 @@
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 let camera, scene, renderer;
-let weapon, dummy;
+let dummy;
 let raycaster = new THREE.Raycaster();
 let pointer = new THREE.Vector2();
 let score = 0;
@@ -33,9 +34,17 @@ function init() {
   dummy.position.set(0, 1, -5);
   scene.add(dummy);
 
-  weapon = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.2, 1), new THREE.MeshStandardMaterial({ color: 0x888888 }));
-  weapon.position.set(0.2, -0.2, -1);
-  camera.add(weapon);
+  const loader = new GLTFLoader();
+  loader.load('models/pistol.glb', (gltf) => {
+    const gun = gltf.scene;
+    gun.scale.set(0.5, 0.5, 0.5);
+    gun.position.set(0.2, -0.2, -1);
+    gun.rotation.y = Math.PI;
+    camera.add(gun);
+  }, undefined, function (error) {
+    console.error('Error loading model:', error);
+  });
+
   scene.add(camera);
 
   const joystickZone = document.getElementById('joystick-zone');
